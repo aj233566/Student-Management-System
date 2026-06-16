@@ -262,8 +262,11 @@ Full-Stack Developer focused on building practical web applications using:
 
 ---
 
-## 📄 License
+## Contributing
 
-This project is licensed under the MIT License.
+Contributions, suggestions, and feature requests are welcome.
 
-Feel free to fork, modify, and use it for learning purposes.
+If you'd like to contribute to this project, please open an issue or contact the repository owner before making major changes.
+
+This project is maintained collaboratively, and significant modifications should be discussed with the maintainer beforehand.
+
