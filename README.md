@@ -30,7 +30,7 @@ The system features an authentication mechanism and an additional verification l
 
 ![Delete Verification](screenshots/delete-verify.png)
 
-### Verification Before Delete
+### Verification Before Edit
 
 ![Edit Verification](screenshots/edit-verify.png)
 
