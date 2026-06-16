@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+    <link rel="stylesheet" href="/show.css">
+</head>
+
+<body>
+    <h1>All Students</h1>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <a href="/students/new" class="add" target="_blank"> Add New Student</a>
+        <a href="/students/total" class="total" target="_blank"> Total Students</a>
+        <a href="/students/logout" class="total" target="_blank"> Logout</a>
+        <thead>
+            <tr>
+                <th>Admission Number</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Class</th>
+                <th>Section</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Contact No</th>
+                <th>Address</th>
+                <th>Admission Date</th>
+                <th colspan="2" style="text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% stud.forEach((student)=> { %>
+                <tr>
+                    <td class="admission-No">
+                        <%= student.admissionNo %>
+                    </td>
+                    <td class="full-name">
+                        <%= student.fullName %>
+                    </td>
+                    <td class="gender">
+                        <%= student.gender %>
+                    </td>
+                    <td class="dob">
+                        <%= student.dob ? new Date(student.dob).toLocaleDateString("en-GB") : "" %>
+                    </td>
+                    <td class="cls">
+                        <%= student.cls %>
+                    </td>
+                    <td class="section">
+                        <%= student.section %>
+                    </td>
+                    <td class="fname">
+                        <%= student.fatherName %>
+                    </td>
+                    <td class="mname">
+                        <%= student.motherName %>
+                    </td>
+                    <td class="contact">
+                        <%= student.contactNo %>
+                    </td>
+                    <td class="address">
+                        <%= student.address %>
+                    </td>
+                    <td class="admission-date">
+                        <%= student.admissionDate ? new Date(student.dob).toLocaleDateString("en-GB") : "" %>
+                    </td>
+                    <td>
+                        <a href="/students/<%= student.id %>/verify" class="edit">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/students/<%= student.id %>/deleteVerify" class="delete">Delete</a>
+
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <br>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Student</title>
+    <link rel="stylesheet" href="/verify.css">
+</head>
+
+<body>
+    <h1>Verify Your Details To Edit</h1>
+    <form action="/students/verify" method="post">
+        <label for="fullName">Name</label>
+        <input type="text" name="fullName" id="fullName" required placeholder="Enter Your Name">
+
+        <label for="admissionNo">Admission No</label>
+        <input type="number" id="admissionNo" name="admissionNo" placeholder="Enter Admission No" min="1000" max="9999"
+            required>
+
+        <button type="submit">Verify</button>
+    </form>
+</body>
+
+</html>
