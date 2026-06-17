@@ -51,6 +51,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/students/logout", (req, res) => {
+    res.redirect("/");
+});
+
 app.get('/students/total', (req, res) => {
   let q = "SELECT COUNT(*) as total FROM student";
   try {
