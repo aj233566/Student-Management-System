@@ -5,6 +5,8 @@ A full-stack Student Management System built using **Node.js**, **Express.js**, 
 The system features an authentication mechanism and an additional verification layer before sensitive actions such as editing or deleting student records.
 
 ---
+Live Demo: https://student-management-system-aotz.onrender.com/students/login
+---
 
 ## 📸 Screenshots
 
@@ -103,7 +105,12 @@ The application automatically generates:
 
 ### Database
 
+* Avien MySQL
 * MySQL
+  
+### Deployed
+
+* Render
 
 ### Additional Packages
 
