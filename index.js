@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const mysql = require('mysql2');
 const path = require('path');
 const methodOverride = require('method-override');
@@ -16,11 +16,26 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(methodOverride('_method'));
 
+require("dotenv").config();
+
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "school",
-  password: "12345",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error("Connection Error:");
+    console.error(err);
+  } else {
+    console.log("Connected to Aiven MySQL!");
+  }
 });
 
 
@@ -29,10 +44,8 @@ app.get("/", (req, res) => {
   connection.query(q, (err, result) => {
     if (err) throw err;
     if (result.length === 0) {
-      // No user found → Show signup form
       res.render("signup.ejs");
     } else {
-      // User exists → Redirect to login page
       res.redirect("/students/login");
     }
   });
@@ -177,7 +190,6 @@ app.post("/students/deleteVerify", (req, res) => {
     let deleteQuery = "DELETE FROM student WHERE id = ?";
     connection.query(deleteQuery, [id], (err, deleteResult) => {
       if (err) throw err;
-      // Show confirmation message and redirect to students list
       res.send("<script>alert('Student deleted successfully.'); window.location.href='/students';</script>");
 
     });

@@ -22,3 +22,6 @@ Thumbs.db
 
 # Package lock (optional)
 # package-lock.json
+
+
+.env
