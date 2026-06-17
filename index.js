@@ -93,7 +93,7 @@ app.get('/students/new', (req, res) => {
 app.post("/students/new", (req, res) => {
   let id = uuidv4();
   let { fullName, gender, dob, cls, section, address, fatherName, motherName, contactNo } = req.body;
-  let admissionNo = faker.number.int({ min: 1000, max: 9999 }); // 4-digit unique
+let admissionNo = Math.floor(Math.random() * 9000) + 1000;
 
   let q = `
     INSERT INTO student 
